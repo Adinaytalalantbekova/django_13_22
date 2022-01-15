@@ -6,3 +6,4 @@ class ShowForm(forms.ModelForm):
         model = models.TVShow
         fields = "__all__"
 
+
