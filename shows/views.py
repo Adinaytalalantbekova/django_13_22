@@ -25,3 +25,4 @@ def add_show(request):
     else:
         form = forms.ShowForm()
     return render(request, 'add_shows.html', {'form': form})
+
