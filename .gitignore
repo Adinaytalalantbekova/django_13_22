@@ -117,5 +117,5 @@ dmypy.json
 cython_debug/
 
 .idea/
-.media
-.static
+media
+static
