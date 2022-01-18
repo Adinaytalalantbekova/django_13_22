@@ -23,33 +23,31 @@
         object-fit: cover;
     }
 
-    .btn-primary {
-        background-color: #D9AFD9;
-        background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
-
-    }
-    .button__container {
-        max-width: 900px;
-        margin-bottom: 20px;
+    .show-card-list {
+        background-color: #21D4FD;
+        background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
         margin-top: 20px;
+        height: 100%;
+    }
+
+    .card-title {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .card-body {
+                font-family: Arial, Helvetica, sans-serif;
+
     }
 </style>
-
-
-<div class="container button__container">
-    <a href="/shows/" class="btn btn-primary">Shows</a>
-
-</div>
 
 <div class="container posts__container">
     <div class="row gy-5">
         {% for i in shows %}
         <div class="col-6">
-            <div class="card">
+        <div class="card show-card-list">
                 <img src="{{ i.image.url }}" class="card-img-top post__img" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{ i.title }}</h5>
-                    <p class="card-text">{{ i.description }}</p>
+                    <p class="card-text">{{ i.genre }}</p>
                     <a href="/shows/{{ i.id }}/" class="btn btn-primary">Go detail</a>
                 </div>
             </div>
