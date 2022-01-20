@@ -23,7 +23,9 @@ def add_show(request):
         form = forms.ShowForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponse('Show created')
+            # return HttpResponse('Show created')
+            return redirect(reverse("shows:shows_all"))
+
     else:
         form = forms.ShowForm()
     return render(request, 'add_shows.html', {'form': form})
@@ -44,4 +46,5 @@ def show_update(request, id):
 def show_delete(request, id):
     show_object = get_object_or_404(models.TVShow, id=id)
     show_object.delete()
-    return HttpResponse('Show Deleted')
+    # return HttpResponse('Show Deleted')
+    return redirect(reverse("shows:shows_all"))
