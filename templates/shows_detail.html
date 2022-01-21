@@ -64,19 +64,31 @@
     <button type="button" class="btn btn-primary"><a href="/add-shows/">Add Show</a></button>
 </div>
 <div class="container show-detail">
-    <img src="{{ show.image.url }}" class="card-img-top detail-image" alt="...">
+    <img src="{{ object.image.url }}" class="card-img-top detail-image" alt="...">
     <div class="card-body body_detail">
-        <h5 class="card-title">{{ show.title }}</h5>
-        <p class="card-text">{{ show.description }}</p>
+        <h5 class="card-title">{{ object.title }}</h5>
+        <p class="card-text">{{ object.description }}</p>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Quantity of series: {{ show.quantity }}</li>
-            <li class="list-group-item">Genre: {{ show.genre }}</li>
-            <li class="list-group-item">Date Filmed: {{ show.date_filmed }}</li>
+            <li class="list-group-item">Quantity of series: {{ object.quantity }}</li>
+            <li class="list-group-item">Genre: {{ object.genre }}</li>
+            <li class="list-group-item">Date Filmed: {{ object.date_filmed }}</li>
+        </ul>
+    </div>
+    <div>
+        <h2>Comments: </h2>
+        <ul>
+            {% for i in object.show_comment.all %}
+            <li>
+                <p>{{ i.text }}</p>
+            </li>
+            {% endfor %}
         </ul>
     </div>
     <div class="card-body body__button">
-        <button type="button" class="btn btn-primary"><a href="/shows/{{ show.id }}/update/">Change {{ show.title }}</a></button>
-        <button type="button" class="btn btn-primary"><a href="/shows/{{ show.id }}/delete/">Delete {{ show.title }}</a></button>
+        <button type="button" class="btn btn-primary"><a href="/shows/{{ object.id }}/update/">Change {{ object.title
+            }}</a></button>
+        <button type="button" class="btn btn-primary"><a href="/shows/{{ object.id }}/delete/">Delete {{ object.title
+            }}</a></button>
     </div>
 </div>
 </body>
