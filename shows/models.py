@@ -22,8 +22,9 @@ class TVShow(models.Model):
 
 
 class ShowComment(models.Model):
-    shows = models.ForeignKey(TVShow, on_delete=models.CASCADE,
-                              related_name="show_comment")
+    shows = models.ForeignKey(
+        TVShow, on_delete=models.CASCADE, related_name="show_comment"
+    )
     text = models.TextField()
     created_date = models.DateField(auto_now_add=True)
 

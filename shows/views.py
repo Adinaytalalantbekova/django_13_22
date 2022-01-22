@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse
+from django.shortcuts import get_object_or_404
+
 
 from . import models, forms
 from django.views import generic
@@ -56,6 +56,7 @@ class ShowsCreateView(generic.CreateView):
 #         form = forms.ShowForm()
 #     return render(request, "add_shows.html", {"form": form})
 
+
 class ShowsUpdateView(generic.UpdateView):
     template_name = "show_update.html"
     form_class = forms.ShowForm
@@ -80,16 +81,18 @@ class ShowsUpdateView(generic.UpdateView):
 #             return redirect(reverse("shows:shows_all"))
 #     else:
 #         form = forms.ShowForm(instance=show_object)
-#     return render(request, "show_update.html", {"form": form, "object": show_object})
+#     return render(request, "show_update.html", {"form": form,
+#                                                 "object": show_object})
 
 
 class ShowsDeleteView(generic.DeleteView):
     template_name = "confirm_delete_show.html"
-    success_url = '/shows/'
+    success_url = "/shows/"
 
     def get_object(self, **kwargs):
         shows_id = self.kwargs.get("id")
         return get_object_or_404(models.TVShow, id=shows_id)
+
 
 # def show_delete(request, id):
 #     show_object = get_object_or_404(models.TVShow, id=id)
