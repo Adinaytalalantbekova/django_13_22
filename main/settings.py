@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "blog",
     "shows",
     "parser_app",
+    "custom_users",
 ]
 
 MIDDLEWARE = [
